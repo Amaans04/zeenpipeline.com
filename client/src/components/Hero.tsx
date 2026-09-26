@@ -6,7 +6,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="home" className="relative flex min-h-[calc(100svh-4rem)] items-end lg:min-h-[calc(100svh-4.5rem)] lg:items-center">
+    <section id="home" className="relative flex min-h-[calc(100svh-6.5rem)] items-end lg:items-center">
       <div className="absolute inset-0 z-0">
         <img
           src="/ZeenWebBackground.jpeg"

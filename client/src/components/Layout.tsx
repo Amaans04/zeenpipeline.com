@@ -31,7 +31,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={`min-h-screen flex flex-col ${language === "ar" ? "rtl" : ""}`}>
       <Navbar />
-      <main className="flex-grow pt-16 lg:pt-[4.5rem]">
+      <main className="flex-grow pt-[6.5rem]">
         <AnimatePresence mode="wait">
           <div key={location}>
             {children}

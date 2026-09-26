@@ -44,12 +44,12 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-black/5 bg-white">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 lg:h-[4.5rem] lg:px-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3">
         <Link href="/" className="shrink-0">
           <img
             src={logo}
             alt="Zeen International Pipeline Supply"
-            className="h-10 w-auto max-w-[9.5rem] object-contain object-left sm:h-12 sm:max-w-[13rem] lg:h-14 lg:max-w-[15rem]"
+            className="h-20 w-[400px] max-w-[calc(100vw-4.5rem)] object-contain object-left"
           />
         </Link>
 
@@ -106,7 +106,7 @@ const Navbar = () => {
       {isOpen && (
         <nav
           id="mobile-menu"
-          className="absolute inset-x-0 top-full max-h-[calc(100svh-4rem)] overflow-y-auto border-b border-black/10 bg-white px-4 py-3 shadow-lg xl:hidden"
+          className="absolute inset-x-0 top-full max-h-[calc(100svh-6.5rem)] overflow-y-auto border-b border-black/10 bg-white px-4 py-3 shadow-lg xl:hidden"
           aria-label="Primary"
         >
           <ul className="flex flex-col">
