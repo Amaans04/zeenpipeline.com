@@ -3,36 +3,33 @@
 # Exit on error
 set -e
 
-echo "🚀 Starting deployment process..."
+# Colors for output
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
-# Install dependencies if needed
-if [ ! -d "node_modules" ]; then
-    echo "📦 Installing dependencies..."
-    npm install
-fi
+# Function to print status messages
+print_status() {
+    echo -e "${BLUE}==>${NC} $1"
+}
 
-# Build the application
-echo "🏗️ Building the application..."
-npm run build
+# Function to print success messages
+print_success() {
+    echo -e "${GREEN}==>${NC} $1"
+}
 
-# Create deployment directory
-echo "📁 Creating deployment directory..."
-rm -rf deploy
-mkdir -p deploy
+print_status "🚀 Starting deployment process..."
 
-# Copy built files
-echo "📋 Copying built files..."
-cp -r dist/* deploy/
+# Change to client/dist directory
+print_status "📂 Changing to client/dist directory..."
+cd client/dist
 
-# Copy vercel.json
-echo "📄 Copying vercel configuration..."
-cp vercel.json deploy/
+# Deploy to Vercel with automated responses
+print_status "🚀 Deploying to Vercel..."
+echo "y
+y
+zeenpipelines" | vercel --prod
 
-# Navigate to deployment directory
-cd deploy
-
-# Deploy to Vercel
-echo "🚀 Deploying to Vercel..."
-vercel --prod
-
-echo "✅ Deployment complete!" 
+print_success "✅ Deployment complete!"
+print_success "Your application has been successfully deployed to Vercel!"

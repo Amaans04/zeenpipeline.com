@@ -7,6 +7,7 @@ export const useLanguage = () => {
 
   useEffect(() => {
     // Set direction for RTL languages
+    document.documentElement.lang = language === "ar" || language === "fr" ? language : "en";
     if (language === "ar") {
       document.documentElement.setAttribute("dir", "rtl");
     } else {

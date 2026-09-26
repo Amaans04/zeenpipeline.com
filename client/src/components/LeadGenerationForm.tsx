@@ -137,7 +137,7 @@ const LeadGenerationForm = ({ isOverlay = false, onClose }: LeadGenerationFormPr
             variant="ghost"
             size="icon"
             onClick={onClose}
-            className="rounded-full h-8 w-8 p-0"
+            className="h-11 w-11 rounded-full p-0"
           >
             <X className="h-4 w-4" />
           </Button>

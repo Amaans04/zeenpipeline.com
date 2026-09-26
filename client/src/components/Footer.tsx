@@ -1,99 +1,47 @@
 import { useTranslation } from "react-i18next";
-import { Download, Link } from "lucide-react";
-import { FaWhatsapp, FaLinkedinIn, FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { Download } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+import { Link } from "wouter";
 import logo from "../assets/logo.svg";
 
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-accent text-white pt-16 pb-8">
+    <footer className="bg-accent pb-8 pt-12 text-white md:pt-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-                <img src={logo} alt="Zeen International Pipeline Supply Logo" className="h-12 rounded-full" />
-            <p className="text-gray-400 mb-6">{t("footer.about")}</p>
-            <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-all"
-              >
-                <FaLinkedinIn />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-all"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-all"
-              >
-                <FaFacebookF />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-all"
-              >
-                <FaInstagram />
-              </a>
-            </div>
+            <img
+              src={logo}
+              alt="Zeen International Pipeline Supply"
+              className="mb-4 h-12 w-auto max-w-[12rem] bg-white object-contain object-left p-1"
+            />
+            <p className="mb-6 text-gray-300">{t("footer.about")}</p>
           </div>
 
           <div>
             <h4 className="text-xl font-bold font-condensed mb-6">
               {t("footer.quickLinks")}
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="/"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("nav.home")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="about"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("nav.about")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="products"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("nav.products")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="industries"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("nav.industries")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="why-us"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("nav.whyUs")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="contact"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("nav.contact")}
-                </a>
-              </li>
+            <ul className="space-y-1">
+              {[
+                { href: "/", label: t("nav.home") },
+                { href: "/about", label: t("nav.about") },
+                { href: "/products", label: t("nav.products") },
+                { href: "/industries", label: t("nav.industries") },
+                { href: "/why-us", label: t("nav.whyUs") },
+                { href: "/contact", label: t("nav.contact") },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="inline-flex min-h-11 items-center text-gray-300 transition-colors duration-150 hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -101,55 +49,24 @@ const Footer = () => {
             <h4 className="text-xl font-bold font-condensed mb-6">
               {t("footer.products")}
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="#products"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("products.filters.pipes")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#products"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("products.filters.valves")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#products"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("products.filters.flanges")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#products"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("products.filters.fittings")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#products"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("products.filters.gaskets")}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#products"
-                  className="text-gray-400 hover:text-white transition-all"
-                >
-                  {t("products.filters.bolts")}
-                </a>
-              </li>
+            <ul className="space-y-1">
+              {[
+                { href: "/products/pipes", label: t("products.filters.pipes") },
+                { href: "/products/valves", label: t("products.filters.valves") },
+                { href: "/products/Flanges", label: t("products.filters.flanges") },
+                { href: "/products/Fittings", label: t("products.filters.fittings") },
+                { href: "/products/Gaskets%26Sealants", label: t("products.filters.gaskets") },
+                { href: "/products", label: t("products.filters.bolts") },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="inline-flex min-h-11 items-center text-gray-300 transition-colors duration-150 hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -187,7 +104,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col items-center md:items-start space-y-2 mb-4 md:mb-0">
               <p className="text-gray-500 text-sm">
-                © 2025 Zeen International Pipeline Supply. All rights reserved.
+                © 2026 Zeen International Pipeline Supply. All rights reserved.
               </p>
               <a
                 href="https://theapexdev.site"

@@ -17,17 +17,22 @@
     "industries": "Industries",
     "whyUs": "Pourquoi Nous Choisir",
     "contact": "Contact",
-    "getQuote": "Demander un Devis"
+    "getQuote": "Demander un Devis",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
   },
   "hero": {
     "title": "Solutions Globales d'Approvisionnement en Pipelines Industriels",
     "tagline": "Tuyaux. Vannes. Brides. Raccords. Joints. Goujons.",
     "getQuote": "Demander un Devis",
+    "viewProducts": "Voir les produits",
+    "proof": "Tuyaux, vannes, brides et raccords certifiés, fournis depuis plus de 45 ans.",
     "downloadCatalog": "Télécharger le Catalogue"
   },
   "about": {
     "title": "À Propos de Zeen International",
     "subtitle": "Votre partenaire de confiance pour les solutions de pipeline industriel, au service des clients mondiaux depuis 1995",
+    "metaDescription": "Zeen International fournit des tuyaux, vannes, brides et raccords industriels certifiés depuis 1995, avec un réseau dans plus de 60 pays.",
     "historyTitle": "Notre Parcours",
     "historyText": "Fondée en 1995, Zeen International est passée d'un petit fournisseur local à un leader mondial des solutions de pipeline industriel. Avec son siège à Dubaï et des opérations au Moyen-Orient, en Europe et en Asie, nous fournissons des produits et services de haute qualité aux secteurs du pétrole et du gaz, de la marine, de l'énergie et des infrastructures.",
     "values": {
@@ -48,6 +53,7 @@
   "products": {
     "title": "Notre Gamme de Produits",
     "subtitle": "Sélection complète de composants de pipeline de haute qualité pour chaque application industrielle",
+    "metaDescription": "Parcourez les tuyaux, vannes, brides, raccords, joints et composants de pipeline industriel de Zeen International.",
     "filters": {
       "all": "Tous les Produits",
       "pipes": "Tuyaux",
@@ -66,6 +72,7 @@
   "industries": {
     "title": "Industries que Nous Servons",
     "subtitle": "Fourniture de solutions de pipeline spécialisées pour des environnements industriels exigeants",
+    "metaDescription": "Composants de pipeline pour le pétrole et le gaz, le maritime, l'énergie et les infrastructures.",
     "keyFeatures": "Caractéristiques Clés",
     "learnMore": "En Savoir Plus",
     "oil": {
@@ -93,6 +100,7 @@
   "whyUs": {
     "title": "Pourquoi Choisir Zeen International",
     "subtitle": "Notre engagement envers l'excellence fait de nous le choix préféré pour les fournitures de pipeline industriel",
+    "metaDescription": "Qualité certifiée, approvisionnement mondial et support technique pour les projets de pipeline industriel.",
     "global": {
       "title": "Portée Mondiale",
       "text": "Opérant dans plus de 30 pays avec des entrepôts stratégiquement situés pour des livraisons rapides dans le monde entier."
@@ -116,6 +124,7 @@
   "contact": {
     "title": "Contactez-Nous",
     "subtitle": "Contactez-nous pour des devis, des demandes de renseignements ou un support technique de notre équipe d'experts",
+    "metaDescription": "Demandez un devis à Zeen International pour des tuyaux, vannes, brides, raccords et produits de pipeline.",
     "form": {
       "title": "Prendre Contact",
       "name": "Nom Complet",
@@ -143,7 +152,7 @@
     "info": {
       "title": "Nos Bureaux",
       "headquarters": "Siège Social",
-      "address": "Jebel Ali Free Zone, Dubaï, EAU",
+      "address": "SAIF-ZONE\nSaif Office Q1-05-029/A\nP.O.Box 124416\nSharjah - U.A.E",
       "phone": "Téléphone",
       "email": "Email",
       "hours": "Heures d'Ouverture",

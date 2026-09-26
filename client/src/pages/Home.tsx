@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
+import { PageMeta, SITE_URL } from "@/components/PageMeta";
 import { ArrowRight, Star, Quote } from "lucide-react";
 import Hero from "@/components/Hero";
 import { motion } from "framer-motion";
@@ -15,11 +15,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useLanguage } from "@/hooks/useLanguage";
 import { testimonials } from "@/data/testimonials";
 import { Button } from "@/components/ui/button";
 import PageTransition from "@/components/PageTransition";
-import { useLocation } from "wouter";
 
 
 const ClientMarquee = () => {
@@ -33,9 +31,9 @@ const ClientMarquee = () => {
   return (
     <div className="bg-white py-6 border-t border-b border-gray-200 overflow-hidden">
       <div className="container mx-auto px-4 mb-3">
-        <h4 className="text-center text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+        <p className="mb-2 text-center font-condensed text-xl font-bold text-primary">
           Our Trusted Clients
-        </h4>
+        </p>
         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
       </div>
       <div className="animate-marquee whitespace-nowrap">
@@ -43,13 +41,8 @@ const ClientMarquee = () => {
           <div key={index} className="inline-block mx-12">
             <img 
               src={client.logo} 
-              alt={client.name} 
-              className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" 
-              title={client.name}
-              onError={(e) => {
-                console.error(`Failed to load image: ${client.logo}`);
-                e.currentTarget.style.display = 'none';
-              }}
+              alt=""
+              className="h-12 w-auto object-contain grayscale sm:h-16"
             />
           </div>
         ))}
@@ -58,13 +51,8 @@ const ClientMarquee = () => {
           <div key={index + 100} className="inline-block mx-12">
             <img 
               src={client.logo} 
-              alt={client.name} 
-              className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" 
-              title={client.name}
-              onError={(e) => {
-                console.error(`Failed to load image: ${client.logo}`);
-                e.currentTarget.style.display = 'none';
-              }}
+              alt=""
+              className="h-12 w-auto object-contain grayscale sm:h-16"
             />
           </div>
         ))}
@@ -83,9 +71,9 @@ const SupplierMarquee = () => {
   return (
     <div className="bg-white py-6 border-t border-b border-gray-200 overflow-hidden">
       <div className="container mx-auto px-4 mb-3">
-        <h4 className="text-center text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+        <p className="mb-2 text-center font-condensed text-xl font-bold text-primary">
           Our Trusted Suppliers
-        </h4>
+        </p>
         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
       </div>
       <div className="animate-marquee whitespace-nowrap">
@@ -93,13 +81,8 @@ const SupplierMarquee = () => {
           <div key={index} className="inline-block mx-6">
             <img 
               src={supplier.logo} 
-              alt={supplier.name} 
-              className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" 
-              title={supplier.name}
-              onError={(e) => {
-                console.error(`Failed to load image: ${supplier.logo}`);
-                e.currentTarget.style.display = 'none';
-              }}
+              alt=""
+              className="h-12 w-auto object-contain grayscale sm:h-16"
             />
           </div>
         ))}
@@ -108,13 +91,8 @@ const SupplierMarquee = () => {
           <div key={index + 100} className="inline-block mx-6">
             <img 
               src={supplier.logo} 
-              alt={supplier.name} 
-              className="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" 
-              title={supplier.name}
-              onError={(e) => {
-                console.error(`Failed to load image: ${supplier.logo}`);
-                e.currentTarget.style.display = 'none';
-              }}
+              alt=""
+              className="h-12 w-auto object-contain grayscale sm:h-16"
             />
           </div>
         ))}
@@ -159,34 +137,29 @@ interface Product {
 }
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const [, setLocation] = useLocation();
   return (
-    <motion.div 
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.3 }}
-      className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
-      onClick={() => setLocation(`/products/${product.id}`)}
+    <Link
+      href={`/products/${encodeURIComponent(product.id)}`}
+      className="block overflow-hidden rounded-lg bg-white shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
       <div className="h-48 overflow-hidden">
-        <img 
-          src={product.image} 
+        <img
+          src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+          className="h-full w-full object-cover"
+          loading="lazy"
         />
       </div>
       <div className="p-5">
-        <div className="text-xs uppercase text-gray-500 mb-2">
-          {product.category}
-        </div>
-        <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-        <p className="text-gray-600 mb-3 line-clamp-2">{product.types.join(", ")}</p>
-        <p className="text-sm text-gray-500 mb-4">{product.materialGrades.join(", ")}</p>
-        <div className="text-primary hover:text-secondary font-medium flex items-center">
-          View Details
-          <ArrowRight className="ml-1 h-4 w-4" />
-        </div>
+        <h3 className="mb-2 text-xl font-bold">{product.name}</h3>
+        <p className="mb-3 line-clamp-2 text-gray-600">{product.types.join(", ")}</p>
+        <p className="mb-4 line-clamp-2 text-sm text-gray-500">{product.materialGrades.join(", ")}</p>
+        <span className="flex items-center font-medium text-primary">
+          View details
+          <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
+        </span>
       </div>
-    </motion.div>
+    </Link>
   );
 };
 
@@ -235,7 +208,6 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 
 const Home = () => {
   const { t } = useTranslation();
-  const { language } = useLanguage();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -261,15 +233,20 @@ const Home = () => {
 
   return (
     <PageTransition>
-      <Helmet>
-        <title>{t("meta.title")}</title>
-        <meta name="description" content={t("meta.description")} />
-        <meta property="og:title" content={t("meta.title")} />
-        <meta property="og:description" content={t("meta.description")} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://zeeninternational.com" />
-        <html lang={language} />
-      </Helmet>
+      <PageMeta
+        title={t("meta.title")}
+        description={t("meta.description")}
+        path="/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Zeen International Pipeline Supply",
+          url: SITE_URL,
+          email: "sales@zeenpipeline.com",
+          telephone: "+917738812758",
+          description: t("meta.description"),
+        }}
+      />
       
       {/* Lead Form Overlay - displays 10 seconds after page load */}
       <LeadFormOverlay />
@@ -279,7 +256,7 @@ const Home = () => {
       <SupplierMarquee />
       
       {/* About Us Section */}
-      <section className="py-20 bg-[#f5f7fa]">
+      <section className="bg-[#f5f7fa] py-12 md:py-20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
@@ -287,7 +264,7 @@ const Home = () => {
                 <img 
                   src="/products/hero img.webp" 
                   alt="Steel Pipes" 
-                  className="rounded-lg shadow-lg w-full h-auto object-cover"
+                  className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
                 />
               </div>
             </div>
@@ -324,7 +301,7 @@ const Home = () => {
       </section>
       
       {/* Featured Products Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-12 md:py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -373,7 +350,7 @@ const Home = () => {
       </section>
       <ClientMarquee />
       {/* Testimonials Section */}
-      <section className="py-20">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -407,7 +384,7 @@ const Home = () => {
         </div>
       </section>
       {/* Lead Generation Form Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="bg-gray-50 py-12 md:py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

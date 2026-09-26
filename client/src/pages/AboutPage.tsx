@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import About from "@/components/About";
 import { useTranslation } from "react-i18next";
 import PageTransition from "@/components/PageTransition";
+import { PageMeta } from "@/components/PageMeta";
 
 export default function AboutPage() {
   const { t } = useTranslation();
@@ -9,10 +9,11 @@ export default function AboutPage() {
   return (
     <PageTransition>
       <>
-        <Helmet>
-          <title>{t("about.title")} | Zeen Pipes</title>
-          <meta name="description" content={t("about.description")} />
-        </Helmet>
+        <PageMeta
+          title={`${t("about.title")} | Zeen International`}
+          description={t("about.metaDescription")}
+          path="/about"
+        />
         <About />
       </>
     </PageTransition>

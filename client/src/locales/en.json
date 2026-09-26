@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Zeen International Pipeline Supply - Global Industrial Pipeline Solutions",
-    "description": "Trusted global supplier of industrial pipeline components."
+    "description": "Zeen International supplies certified industrial pipes, valves, flanges, fittings, gaskets, and stud bolts for oil, gas, power, and process projects."
   },
   "home": {
     "keyAreas": "Our Key Areas",
@@ -26,17 +26,22 @@
     "industries": "Industries",
     "whyUs": "Why Choose Us",
     "contact": "Contact",
-    "getQuote": "Get a Quote"
+    "getQuote": "Get a Quote",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "title": "Global Industrial Pipeline Supply Solutions",
     "tagline": "Pipes. Valves. Flanges. Fittings. Gaskets. Stud Bolts.",
     "getQuote": "Get a Quote",
+    "viewProducts": "View products",
+    "proof": "Certified pipe, valves, flanges, and fittings, supplied for more than 45 years.",
     "downloadCatalog": "Download Catalog"
   },
   "about": {
     "title": "About Zeen International",
     "subtitle": "Your trusted pipeline solutions partner.",
+    "metaDescription": "Zeen International has supplied certified industrial piping since 1995, with a supply network across more than 60 countries.",
     "historyTitle": "Our Journey",
     "historyText": "Global leader since 1995.",
     "values": {
@@ -57,6 +62,7 @@
   "products": {
     "title": "Our Product Range",
     "subtitle": "High-quality pipeline components.",
+    "metaDescription": "Browse pipes, valves, flanges, fittings, gaskets, and related industrial pipeline components from Zeen International.",
     "filters": {
       "all": "All Products",
       "pipes": "Pipes",
@@ -75,6 +81,7 @@
   "industries": {
     "title": "Industries We Serve",
     "subtitle": "Specialized pipeline solutions provider.",
+    "metaDescription": "Pipeline components for oil and gas, marine, power, and infrastructure projects.",
     "keyFeatures": "Key Features",
     "learnMore": "Learn More",
     "oil": {
@@ -102,6 +109,7 @@
   "whyUs": {
     "title": "Why Choose Zeen International",
     "subtitle": "Your trusted pipeline supply partner.",
+    "metaDescription": "ISO-certified quality, global supply, and technical support for industrial pipeline projects.",
     "global": {
       "title": "Global Reach",
       "text": "Worldwide network for quick deliveries."
@@ -151,6 +159,7 @@
   "contact": {
     "title": "Contact Us",
     "subtitle": "Get in touch with us.",
+    "metaDescription": "Request a quote from Zeen International for pipes, valves, flanges, fittings, and related pipeline products.",
     "form": {
       "title": "Get in Touch",
       "name": "Full Name",
@@ -178,7 +187,7 @@
     "info": {
       "title": "Our Offices",
       "headquarters": "Headquarters",
-      "address": "Jebel Ali Free Zone, Dubai",
+      "address": "SAIF-ZONE\nSaif Office Q1-05-029/A\nP.O.Box 124416\nSharjah - U.A.E",
       "phone": "Phone",
       "email": "Email",
       "hours": "Working Hours",

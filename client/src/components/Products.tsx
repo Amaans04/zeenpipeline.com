@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
+import { PageMeta } from "@/components/PageMeta";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { products } from "@/data/products";
@@ -18,24 +19,18 @@ interface Product {
   sizes?: string[];
 }
 
-const ProductCard = ({ product, index }: { product: Product; index: number }) => {
-  const [, setLocation] = useLocation();
-  
+const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -5 }}
-      onClick={() => setLocation(`/products/${product.id}`)}
-      className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all"
+    <Link
+      href={`/products/${encodeURIComponent(product.id)}`}
+      className="block overflow-hidden rounded-lg bg-white shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
       <div className="aspect-video relative">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
+          loading="lazy"
         />
         <div className="absolute top-4 right-4">
           <span className="bg-primary text-white px-3 py-1 rounded-full text-sm">
@@ -60,7 +55,7 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
           </div>
         </div>
       </div>
-    </motion.div>
+    </Link>
   );
 };
 
@@ -93,7 +88,12 @@ const Products = () => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-[#f5f7fa] py-20">
+      <PageMeta
+        title={`${t("products.title")} | Zeen International`}
+        description={t("products.metaDescription")}
+        path="/products"
+      />
+      <div className="min-h-screen bg-[#f5f7fa] py-12 md:py-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -102,7 +102,7 @@ const Products = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold font-condensed">
+            <h1 className="font-condensed text-3xl font-bold sm:text-4xl">
               {t("products.title")}
             </h1>
             <p className="text-gray-600 max-w-2xl mx-auto mt-4">
@@ -125,7 +125,7 @@ const Products = () => {
                 placeholder={t("products.searchPlaceholder")}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-10"
+                className="min-h-12 pl-10 text-base"
               />
             </div>
 
@@ -133,7 +133,7 @@ const Products = () => {
             <div className="flex flex-wrap gap-2 justify-center">
               <button
                 onClick={() => setSelectedCategory(null)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`min-h-11 rounded-full px-4 text-sm font-medium transition-colors ${
                   selectedCategory === null
                     ? "bg-primary text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -145,7 +145,7 @@ const Products = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`min-h-11 rounded-full px-4 text-sm font-medium transition-colors ${
                     selectedCategory === category
                       ? "bg-primary text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -171,8 +171,8 @@ const Products = () => {
             }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredProducts.map((product, index) => (
-              <ProductCard key={product.id} product={product} index={index} />
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </motion.div>
 

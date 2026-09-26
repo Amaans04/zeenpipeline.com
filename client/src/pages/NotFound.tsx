@@ -1,14 +1,19 @@
-import { useTranslation } from "react-i18next";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { PageMeta } from "@/components/PageMeta";
 
 const NotFound = () => {
-  const { t } = useTranslation();
   const [, setLocation] = useLocation();
 
   return (
-    <div className="min-h-screen bg-[#f5f7fa] py-20">
+    <div className="min-h-screen bg-[#f5f7fa] py-16">
+      <PageMeta
+        title="Page not found | Zeen International"
+        description="The page you requested is not on the Zeen International site."
+        path="/404"
+        noindex
+      />
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>

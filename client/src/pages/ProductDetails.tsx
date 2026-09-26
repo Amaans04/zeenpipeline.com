@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { useLocation, useRoute } from "wouter";
+import { Link, useLocation, useRoute } from "wouter";
+import { PageMeta } from "@/components/PageMeta";
 import { ArrowLeft, Download, Mail, ChevronRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
@@ -45,41 +46,49 @@ const ProductDetails = () => {
     );
   }
 
+  const description = product.types[0]?.slice(0, 155) || product.name;
+
   return (
     <PageTransition>
-      {/* Hero Section */}
-      <div 
-        className="relative h-[500px] flex items-center justify-center"
-        style={{ 
+      <PageMeta
+        title={`${product.name} | Zeen International`}
+        description={description}
+        path={`/products/${encodeURIComponent(product.id)}`}
+      />
+      <div
+        className="relative flex min-h-[42vh] items-end md:min-h-[22rem] md:items-center"
+        style={{
           backgroundImage: `url(${product.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-40"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <h1 className="text-white text-5xl font-bold font-condensed">
+        <div className="absolute inset-0 bg-black/45"></div>
+        <div className="container relative z-10 mx-auto px-4 py-10">
+          <h1 className="max-w-3xl font-condensed text-3xl font-bold leading-tight text-white sm:text-5xl">
             {product.name}
           </h1>
         </div>
       </div>
 
-      {/* Breadcrumb Navigation */}
-      <div className="bg-[#f5f7fa] py-4">
+      <nav aria-label="Breadcrumb" className="bg-[#f5f7fa] py-3">
         <div className="container mx-auto px-4">
-          <div className="flex items-center text-sm text-gray-500">
-            <button 
-              onClick={() => setLocation("/products")}
-              className="hover:text-primary transition-colors"
-            >
-              Products
-            </button>
-            <ChevronRight className="h-4 w-4 mx-2" />
-            <span className="text-primary font-medium">{product.name}</span>
-          </div>
+          <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-500">
+            <li>
+              <Link href="/products" className="inline-flex min-h-11 items-center hover:text-primary">
+                Products
+              </Link>
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight className="h-4 w-4" />
+            </li>
+            <li className="font-medium text-primary" aria-current="page">
+              {product.name}
+            </li>
+          </ol>
         </div>
-      </div>
+      </nav>
 
       <div className="min-h-screen bg-[#f5f7fa] py-12">
         <div className="container mx-auto px-4">

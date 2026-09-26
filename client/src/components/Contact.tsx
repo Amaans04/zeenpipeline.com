@@ -99,7 +99,9 @@ const Contact = () => {
                     <h4 className="font-bold text-lg">
                       {t("contact.info.headquarters")}
                     </h4>
-                    <p className="text-gray-600">{t("contact.info.address")}</p>
+                    <p className="text-gray-600 whitespace-pre-line">
+                      {t("contact.info.address")}
+                    </p>
                   </div>
                 </div>
 
@@ -130,7 +132,9 @@ const Contact = () => {
                     <h4 className="font-bold text-lg">
                       {t("contact.info.email")}
                     </h4>
-                    <p className="text-gray-600">sales@zeenpipeline.com</p>
+                    <a className="text-gray-600 hover:text-primary" href="mailto:sales@zeenpipeline.com">
+                      sales@zeenpipeline.com
+                    </a>
                   </div>
                 </div>
 

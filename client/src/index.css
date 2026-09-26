@@ -119,7 +119,7 @@
 
   body {
     @apply h-full bg-background text-foreground font-sans antialiased overflow-x-hidden;
-    width: 100vw;
+    width: 100%;
     position: relative;
   }
 
@@ -193,4 +193,14 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee {
+    animation: none;
+  }
 }
